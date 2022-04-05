@@ -1,0 +1,34 @@
+// Binary Search algo
+class Solution {
+    int binarysearch(int arr[], int n, int k)
+    {
+            
+        int lo = 0;
+        int hi = n-1;
+        if (arr[lo] > k || arr[hi] < k)
+        return -1;
+        return findElement(arr,lo,hi,k);
+        
+        
+    }
+    public int findElement(int arr[],int lo,int hi,int k)
+    {
+        int med = (lo + hi)/2;
+        if (arr[med]==k)
+           return med;
+        if (lo==hi)
+            return -1;
+        if (arr[med]>k)
+        {
+           hi=med-1;
+        }
+        else
+        {
+            lo=med+1;
+        }
+        return findElement(arr,lo,hi,k);
+        
+        
+    }
+    
+}
