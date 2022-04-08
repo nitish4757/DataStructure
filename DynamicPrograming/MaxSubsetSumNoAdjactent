@@ -1,0 +1,28 @@
+// write a function that takes positive integers in a array and return the max sum with no adjacent element 
+// array = {75,105,120,75,90,135}
+// output = 330 (75+120+135)
+
+import java.util.*;
+import java.lang.*;
+
+class Program {
+  public static int maxSubsetSumNoAdjacent(int[] array) {
+    // Write your code here.
+		if (array.length==0)
+			return 0;
+	 
+    // if there is 1 element then return that element 
+		if (array.length ==1)
+			return array[0];
+	  int current=0;
+		int first = array[0];
+		int second= Math.max(array[0],array[1]);
+		for(int i=1;i<array.length-1;i++)
+		{
+			current= Math.max(second,first+array[i+1]);
+			first = second;
+			second = current;
+		}
+    return second;
+  }
+}
