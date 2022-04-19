@@ -1,0 +1,34 @@
+// Easy question of AlgoExpert - just go through StringBuilder syntax 
+// String = "AAAAAAAAAAABBBD"
+// output = "9A2A3B1D"
+// when the character is more than 9 just split ...input string can have numbers and special characters
+
+import java.util.*;
+
+class Program {
+  public String runLengthEncoding(String string) {
+    // Write your code here.  AAAABBBCCD 4A3B2C1D
+		StringBuilder output = new StringBuilder();
+		char prevChar=string.charAt(0);
+		int len =1;
+		for(int i=1;i<string.length();i++)
+		{
+			
+			if (string.charAt(i) == prevChar && len<9)
+			{
+			   len++;	
+			}
+			else
+			{
+				output.append(Integer.toString(len));
+				output.append(prevChar);
+				len = 1;
+				prevChar = string.charAt(i);
+			}
+		}
+		output.append(Integer.toString(len));
+		output.append(prevChar);
+		return output.toString();
+
+  }
+}
