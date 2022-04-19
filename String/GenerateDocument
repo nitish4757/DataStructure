@@ -1,0 +1,31 @@
+//Easy question - algoExpert
+
+
+import java.util.*;
+
+class Program {
+
+  public boolean generateDocument(String characters, String document) {
+    // Write your code here.
+    HashMap<Character,Integer> map = new HashMap<Character,Integer>();
+		for (int i=0;i<characters.length();i++)
+		{
+			char character = characters.charAt(i);
+			map.put(character,map.getOrDefault(character,0)+1);
+		}
+		
+		for (int j=0;j<document.length();j++)
+		{
+			if ((map.get(document.charAt(j)) == null) || (map.get(document.charAt(j)))==0)
+			{
+				return false;
+			}
+			else
+			{
+				map.put(document.charAt(j),map.get(document.charAt(j))-1);
+			}
+		}
+		return true;
+	}
+
+}
