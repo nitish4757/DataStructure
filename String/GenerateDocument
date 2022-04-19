@@ -1,4 +1,5 @@
 //Easy question - algoExpert
+// using getOrDefault function of hashmap 
 
 
 import java.util.*;
